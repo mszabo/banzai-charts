@@ -1,5 +1,5 @@
 {{- if and .Values.store.enabled .Values.store.http.ingress.enabled }}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: {{ include "thanos.componentname" (list $ "store") }}-http
@@ -42,7 +42,7 @@ spec:
 ---
 
   {{- if and .Values.store.enabled .Values.store.grpc.ingress.enabled }}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: {{ include "thanos.componentname" (list $ "store") }}-grpc

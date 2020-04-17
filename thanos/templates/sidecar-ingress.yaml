@@ -1,6 +1,6 @@
 ---
 {{- if and .Values.sidecar.enabled .Values.sidecar.http.ingress.enabled }}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: {{ include "thanos.componentname" (list $ "sidecar") }}-http
@@ -44,7 +44,7 @@ spec:
 
 {{- if and .Values.sidecar.enabled .Values.sidecar.grpc.ingress.enabled }}
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: {{ include "thanos.componentname" (list $ "sidecar") }}-grpc
